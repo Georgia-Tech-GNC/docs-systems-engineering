@@ -17,7 +17,7 @@ Artifact and process definitions should answer three questions:
 
 - What is this?
 - What is it for?
-- When is it required?
+- Which document owns the detailed rules?
 
 Add more detail only when it changes how the artifact is written, reviewed, approved, or linked.
 
