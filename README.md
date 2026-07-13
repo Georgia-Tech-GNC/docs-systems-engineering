@@ -19,6 +19,7 @@ The near-term goal is to turn the draft requirements and risk plan into concise,
 - `docs/baselines-and-change-control.md`: defines baseline semantics, review disposition handling, and change-control expectations.
 - `docs/reviews.md`: defines MCR, SRR, PDR, CDR, TRR, FRR, and the expected state after each review.
 - `docs/authoring.md`: defines requirements, risks, rationale, verification, metadata, and validation guidance.
+- `docs/writing-style.md`: defines the writing standards for this repository.
 - `templates/`: contains reusable starting points for program artifacts such as concept of operations, interface-control documents, configuration records, reports, checklists, and flight-readiness records.
 
 ## Current Focus
