@@ -6,8 +6,8 @@ This is the working backlog for turning the draft requirements and risk plan int
 
 - [x] **Define repository responsibilities** in `docs/repository-model.md`: what belongs in this club-wide process repository versus what belongs in each program-specific repository.
 - [x] **Define the controlled artifact vocabulary** in `docs/controlled-artifacts.md`: mission objectives, mission constraints, requirements, concept of operations, interface-control documentation, verification matrix, risk register, configuration records, analysis/test reports, operations checklists, and flight-readiness checklist.
-- [ ] **Define baseline semantics** in `docs/baselines-and-change-control.md`: when baselines are created, what an annotated baseline tag contains, why tags are immutable, how post-review dispositions are merged, and how changes between baselines are approved.
-- [ ] **Define open-item handling** in `docs/baselines-and-change-control.md`: allowed use of TBD, TBR, and TBS; required resolution owner, plan, and due date; and which reviews may proceed with unresolved items.
+- [x] **Define baseline semantics** in `docs/baselines-and-change-control.md`: when baselines are created, what an annotated baseline tag contains, why tags are immutable, how post-review dispositions are merged, and how changes between baselines are approved.
+- [x] **Define open-item handling** in `docs/baselines-and-change-control.md`: allowed use of TBD, TBR, and TBS; required resolution owner, plan, and due date; and the rule that review-specific open-item tolerance belongs in `docs/reviews.md`.
 - [ ] **Define applicability conventions** in `docs/authoring.md`: how requirements, risks, evidence, waivers, and configuration records identify the vehicle configuration, mission phase, and flight attempt to which they apply.
 
 ## Define the review ladder
