@@ -47,6 +47,16 @@ message telling the author to run `syseng export`.
 Program documentation may provide shorter wrappers, but the shared command name
 is `syseng`.
 
+## Install Tools
+
+Program repositories should pin `syseng-tools` in `requirements-tools.txt`.
+
+The installation procedure is maintained in
+[Georgia-Tech-GNC/syseng-tools](https://github.com/Georgia-Tech-GNC/syseng-tools).
+
+Authors should install the pinned tool requirements before running `syseng`
+commands.
+
 ## Repository Layout
 
 Program repositories use this layout:
