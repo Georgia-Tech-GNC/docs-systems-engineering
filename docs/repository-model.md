@@ -45,6 +45,46 @@ A program should stay in one repository as its capabilities evolve. Versioned ba
 
 ## Source Data And Generated Views
 
-Program repositories should store requirements and risks as source data. StrictDoc `.sdoc` files are the expected source format once the shared grammar is defined.
+Program repositories should store requirements and risks as source data. StrictDoc `.sdoc` files are the expected source format once the `syseng-tools` grammar is defined.
 
 Generated outputs are review views derived from source data. StrictDoc HTML exports, traceability views, and verification matrices may be published for review, but they are not the controlled source.
+
+## Program Repository Layout
+
+Program repositories use this layout:
+
+```text
+syseng.toml
+requirements-tools.txt
+records/
+  mission.sdoc
+  requirements.sdoc
+  risks.sdoc
+docs/
+  conops/
+  interfaces/
+  verification/
+  reviews/
+  configuration/
+build/
+  strictdoc/
+  syseng/
+```
+
+`syseng.toml` contains program configuration for `syseng-tools`.
+
+`requirements-tools.txt` pins the program repository tooling.
+
+`records/` contains controlled record source data, including mission records,
+requirements, and risks.
+
+`docs/` contains supporting controlled artifacts and evidence.
+
+`build/` contains generated output. Generated output may support review, but it
+does not define the controlled baseline.
+
+Program repositories own the program-specific records, supporting artifacts,
+baselines, and generated review outputs.
+
+StrictDoc and `syseng` usage for these paths is defined in
+[StrictDoc Integration](strictdoc-integration.md).

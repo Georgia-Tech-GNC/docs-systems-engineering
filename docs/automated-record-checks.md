@@ -12,7 +12,7 @@ Every automated check has a stable `CHK-###` identifier.
 | ID range | Enforced by | Meaning |
 | --- | --- | --- |
 | `CHK-0XX` | StrictDoc | Native StrictDoc parsing, grammar, and traceability checks. |
-| `CHK-1XX` | Shared tooling | Checks implemented by `syseng check` because StrictDoc cannot enforce the rule directly. |
+| `CHK-1XX` | `syseng check` | Checks implemented by `syseng check` because StrictDoc cannot enforce the rule directly. |
 
 The ID range identifies the enforcement source. It does not change the expected
 diagnostic quality.
@@ -44,7 +44,7 @@ CHK-111 ERROR TVC-REQ-014 records/requirements.sdoc:42: open item status is TBD,
 
 ## StrictDoc-Native Checks
 
-These checks are detected by StrictDoc when shared tooling runs StrictDoc
+These checks are detected by StrictDoc when `syseng check` runs StrictDoc
 parsing or export.
 
 `syseng check` should map known StrictDoc diagnostics to these IDs and preserve
@@ -64,10 +64,10 @@ the affected UID, file, and line when available.
 | `CHK-010` | Error | Documents | Included documents can be loaded as one StrictDoc project. |
 
 StrictDoc may emit diagnostics that are not yet mapped to a `CHK-0XX` ID.
-Shared tooling should still report those diagnostics with the most precise
+`syseng check` should still report those diagnostics with the most precise
 available location.
 
-## Shared Tooling Checks
+## Syseng Checks
 
 These checks depend on project configuration, project-specific vocabularies,
 relations, conditional fields, generated values, file existence, or text

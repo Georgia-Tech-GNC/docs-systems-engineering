@@ -32,7 +32,7 @@ This is the working backlog for turning the draft requirements and risk plan int
 
 ## Define program-repository workflow
 
-- [x] **Define StrictDoc integration usage** in `docs/strictdoc-integration.md`: shared command name, record tags, conditional fields, relation conventions, risk rendering, risk calculation, and the boundary with shared tooling.
+- [x] **Define StrictDoc integration usage** in `docs/strictdoc-integration.md`: command name, record tags, conditional fields, relation conventions, risk rendering, risk calculation, and the boundary with `syseng-tools`.
 - [ ] **Define the recommended repository layout and local commands** in `CONTRIBUTING.md`: where records, evidence, configuration records, templates, and generated output belong; how to install pinned tools; and how to run automated checks and preview changes.
 - [ ] **Define the contribution workflow** in `CONTRIBUTING.md`: branch, commit, and pull-request conventions; required reviewers; PR contents; baseline changes; and any expedited path for time-critical corrections.
 - [ ] **Define StrictDoc architecture**: shared grammar fields, relation conventions, generated HTML, verification matrix generation, and CI expectations.
@@ -50,7 +50,15 @@ This is the working backlog for turning the draft requirements and risk plan int
 ## After the core workflow is proven
 
 - [ ] Publish generated StrictDoc HTML for read-only member access; decide separately whether browser editing is worth supporting.
-- [ ] Evaluate editable web authoring for controlled records after the text-based workflow and shared command set are proven.
-- [ ] Evaluate generating `program.sgra` from a canonical schema after the hand-maintained grammar stabilizes.
 - [ ] Confirm that generated verification matrices and traceability views are sufficient; add custom reporting only for a demonstrated review need.
 - [ ] Decide which parts of the proven grammar, CI, templates, and guidance should become reusable starters for future rocket-program repositories.
+
+## Cross-Repository Tooling Backlog
+
+These items may require changes in this process repository, `syseng-tools`, or
+program repositories.
+
+- [ ] Evaluate editable web authoring for controlled records after the text-based workflow and `syseng` command set are proven.
+- [ ] Evaluate generating `program.sgra` from a canonical schema after the hand-maintained grammar stabilizes.
+- [ ] Evaluate StrictDoc file relations for supporting artifacts after the current field-based artifact links are proven.
+- [ ] Clarify tagging rules for `syseng-tools` releases, including which rules belong to that repository and which should become club-wide GitHub conventions.
