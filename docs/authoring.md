@@ -6,7 +6,7 @@ Artifact definitions are authoritative in [Controlled Artifacts](controlled-arti
 
 ## Common Record Rules
 
-The ID is the only unique identifier for a controlled record. Titles are short human-readable labels, not identifiers. Claim fields contain the controlled assertion. Metadata fields provide the context needed to review, maintain, and use the claim.
+The UID is the only unique identifier for a controlled record. Titles are short human-readable labels, not identifiers. Claim fields contain the controlled assertion. Metadata fields provide the context needed to review, maintain, and use the claim.
 
 ### Record Classes
 
@@ -21,9 +21,9 @@ A program repository uses four controlled record classes:
 
 Mission objectives and mission constraints are not considered requirements. L1 and L2 records are requirements.
 
-### ID Rules
+### UID Rules
 
-Each controlled record has a permanent ID.
+Each controlled record has a permanent UID.
 
 | Record class | Format | Example |
 | --- | --- | --- |
@@ -34,7 +34,7 @@ Each controlled record has a permanent ID.
 
 The project prefix identifies the project. The middle token (MO, MC, REQ, RISK) identifies the record class. The number gives the record a stable identity.
 
-DO NOT REUSE IDs.
+DO NOT REUSE UIDs.
 
 If a controlled record changes meaning, create a new record and close the old one. Requirements are closed as `Superseded`. Risks are closed as `Retired`, with a link to the replacement risk when one exists.
 
@@ -135,7 +135,7 @@ Mission objectives and mission constraints use the same fields. Only the stateme
 
 | Field | Allowed values or format |
 | --- | --- |
-| ID | `[PROJECT]-MO-[NNN]` or `[PROJECT]-MC-[NNN]` |
+| UID | `[PROJECT]-MO-[NNN]` or `[PROJECT]-MC-[NNN]` |
 
 #### Label
 
@@ -156,7 +156,9 @@ Mission objectives and mission constraints use the same fields. Only the stateme
 | Rationale | One to three sentences |
 | Subteam owner | One or more standard subteam values |
 | Individual owner | Named person or role |
-| Applicability | Grouped field containing vehicle configuration, mission phase, and flight attempt |
+| Vehicle configuration | Controlled value defined by the program repository |
+| Mission phase | Controlled value defined by the program repository |
+| Flight attempt | Controlled value defined by the program repository |
 | Open item status | `None`, `TBD`, `TBR`, `TBS` |
 | Resolution owner | Required when open item status is not `None` |
 | Resolution plan | Required when open item status is not `None` |
@@ -316,7 +318,7 @@ The requirement statement is the controlled claim.
 
 | Field | Allowed values or format |
 | --- | --- |
-| ID | `[PROJECT]-REQ-[NNN]` |
+| UID | `[PROJECT]-REQ-[NNN]` |
 
 #### Label
 
@@ -341,12 +343,14 @@ The requirement statement is the controlled claim.
 
 | Field | Allowed values or format |
 | --- | --- |
-| Parent | ID of the parent mission record or requirement |
+| Parent | UID of the parent mission record or requirement |
 | Rationale | One to three sentences |
 | Applicable subsystem | One or more standard subsystem values |
 | Subteam owner | One or more standard subteam values |
 | Individual owner | Named person or role |
-| Applicability | Grouped field containing vehicle configuration, mission phase, and flight attempt |
+| Vehicle configuration | Controlled value defined by the program repository |
+| Mission phase | Controlled value defined by the program repository |
+| Flight attempt | Controlled value defined by the program repository |
 | Open item status | `None`, `TBD`, `TBR`, `TBS` |
 | Resolution owner | Required when open item status is not `None` |
 | Resolution plan | Required when open item status is not `None` |
@@ -435,18 +439,9 @@ Do not use `Demonstration` as the only planned verification method when failure 
 
 ### Applicability
 
-Applicability identifies the vehicle configuration, mission phase, and flight or test attempt for which a record is valid.
+Applicability identifies the scope for which a record is valid.
 
-Applicability is written as one grouped metadata field:
-
-```text
-Applicability:
-  Vehicle configuration: [configuration]
-  Mission phase: [phase]
-  Flight attempt: [attempt]
-```
-
-Each program repository must define controlled values for these fields:
+Applicability is represented by three metadata fields:
 
 | Field | Use |
 | --- | --- |
@@ -701,7 +696,7 @@ The risk condition and consequence are the controlled claim.
 
 | Field | Allowed values or format |
 | --- | --- |
-| ID | `[PROJECT]-RISK-[NNN]` |
+| UID | `[PROJECT]-RISK-[NNN]` |
 
 #### Label
 
@@ -728,17 +723,19 @@ The risk condition and consequence are the controlled claim.
 | --- | --- |
 | Subteam owner | One or more standard subteam values |
 | Individual owner | Named person or role |
-| Applicability | Grouped field containing vehicle configuration, mission phase, and flight attempt |
-| Initial likelihood | `Low (1)`, `Medium (2)`, `High (3)` |
-| Initial severity | `Low (1)`, `Medium (2)`, `High (3)` |
+| Vehicle configuration | Controlled value defined by the program repository |
+| Mission phase | Controlled value defined by the program repository |
+| Flight attempt | Controlled value defined by the program repository |
+| Initial likelihood | `Low`, `Medium`, `High` |
+| Initial severity | `Low`, `Medium`, `High` |
 | Initial risk level | Calculated from likelihood and severity |
-| Current likelihood | `Low (1)`, `Medium (2)`, `High (3)` |
-| Current severity | `Low (1)`, `Medium (2)`, `High (3)` |
+| Current likelihood | `Low`, `Medium`, `High` |
+| Current severity | `Low`, `Medium`, `High` |
 | Current risk level | Calculated from likelihood and severity |
 | Risk response | `Watch`, `Mitigate`, `Avoid`, `Accept` |
 | Response plan | Required unless the response is `Accept` |
 | Due date | Required unless the response is `Accept` |
-| Linked requirements | Requirement IDs affected by the risk |
+| Linked requirements | Requirement UIDs affected by the risk |
 | Linked artifacts | Artifacts related to the risk or response |
 | Status | `Open`, `Accepted`, `Closed`, `Retired` |
 | Disposition notes | Required for `Accepted`, `Closed`, and `Retired` |
@@ -749,19 +746,19 @@ Common linked artifacts include analysis reports, test reports, interface defini
 
 Likelihood answers how likely the risk is to occur.
 
-| Score | Meaning |
-| --- | --- |
-| Low (1) | Unlikely, but credible. |
-| Medium (2) | Plausible. |
-| High (3) | Likely unless action is taken. |
+| Likelihood | Score | Meaning |
+| --- | --- | --- |
+| Low | 1 | Unlikely, but credible. |
+| Medium | 2 | Plausible. |
+| High | 3 | Likely unless action is taken. |
 
 Severity answers how harmful the consequence would be.
 
-| Score | Meaning |
-| --- | --- |
-| Low (1) | Minor redesign, small delay, or limited mission impact. |
-| Medium (2) | Major redesign, missed test, or degraded mission success. |
-| High (3) | Safety issue, launch cancellation, mission failure, or major hardware loss. |
+| Severity | Score | Meaning |
+| --- | --- | --- |
+| Low | 1 | Minor redesign, small delay, or limited mission impact. |
+| Medium | 2 | Major redesign, missed test, or degraded mission success. |
+| High | 3 | Safety issue, launch cancellation, mission failure, or major hardware loss. |
 
 Risk level is likelihood multiplied by severity.
 
@@ -803,21 +800,35 @@ An accepted risk does not require a response plan. It requires disposition notes
 
 Accepted, Closed, and Retired risks require disposition notes.
 
+### Allowable Response-Status Combinations
+
+Risk response identifies the selected handling strategy.
+
+Risk status identifies the current lifecycle state.
+
+Use these response and status combinations:
+
+| Status | Allowed responses |
+| --- | --- |
+| `Open` | `Watch`, `Mitigate`, `Avoid` |
+| `Accepted` | `Accept` |
+| `Closed` | `Watch`, `Mitigate`, `Avoid` |
+| `Retired` | `Watch`, `Mitigate`, `Avoid` |
+
 ## Complete Record Examples
 
 Example mission objective:
 
 ```text
-ID: TVC-MO-001
+UID: TVC-MO-001
 Title: Controlled Powered Ascent
 Statement: Demonstrate that the vehicle can maintain vertical attitude during powered ascent under nominal launch conditions.
 Rationale: This objective supports the program goal of demonstrating thrust-vector control in flight. Without it, the mission would not show whether the control approach works under ascent loads.
 Subteam owner: Systems
 Individual owner: Systems Lead
-Applicability:
-  Vehicle configuration: TVC-F1
-  Mission phase: Powered ascent
-  Flight attempt: Flight 1
+Vehicle configuration: TVC-F1
+Mission phase: Powered ascent
+Flight attempt: Flight 1
 Open item status: None
 Resolution owner: Not required
 Resolution plan: Not required
@@ -828,16 +839,15 @@ Status: Approved
 Example mission constraint:
 
 ```text
-ID: TVC-MC-001
+UID: TVC-MC-001
 Title: Range Safety Compliance
 Statement: The vehicle shall comply with applicable range safety rules for the selected launch site.
 Rationale: This constraint is required by the launch authority. Without it, the mission cannot be approved for flight.
 Subteam owner: Systems
 Individual owner: Systems Lead
-Applicability:
-  Vehicle configuration: All
-  Mission phase: All
-  Flight attempt: All
+Vehicle configuration: All
+Mission phase: All
+Flight attempt: All
 Open item status: None
 Resolution owner: Not required
 Resolution plan: Not required
@@ -848,7 +858,7 @@ Status: Approved
 Example L1 requirement:
 
 ```text
-ID: TVC-REQ-001
+UID: TVC-REQ-001
 Title: Powered Ascent Attitude Estimate
 Level: L1
 Type: Functional
@@ -858,10 +868,9 @@ Rationale: This requirement supports TVC-MO-001 by providing the state estimate 
 Applicable subsystem: Avionics, Flight Software
 Subteam owner: Electrical, Software, Controls
 Individual owner: Systems Lead
-Applicability:
-  Vehicle configuration: TVC-F1
-  Mission phase: Powered ascent
-  Flight attempt: Flight 1
+Vehicle configuration: TVC-F1
+Mission phase: Powered ascent
+Flight attempt: Flight 1
 Open item status: None
 Resolution owner: Not required
 Resolution plan: Not required
@@ -876,7 +885,7 @@ Status: Approved
 Example L2 requirement:
 
 ```text
-ID: TVC-REQ-014
+UID: TVC-REQ-014
 Title: Attitude Log Rate
 Level: L2
 Type: Performance
@@ -886,10 +895,9 @@ Rationale: This requirement supports post-flight evaluation of TVC-REQ-001. The 
 Applicable subsystem: Flight Software
 Subteam owner: Software, Controls
 Individual owner: Software Lead
-Applicability:
-  Vehicle configuration: TVC-F1
-  Mission phase: Powered ascent
-  Flight attempt: Flight 1
+Vehicle configuration: TVC-F1
+Mission phase: Powered ascent
+Flight attempt: Flight 1
 Open item status: None
 Resolution owner: Not required
 Resolution plan: Not required
@@ -904,7 +912,7 @@ Status: Approved
 Example risk:
 
 ```text
-ID: TVC-RISK-003
+UID: TVC-RISK-003
 Title: Actuator Bandwidth Shortfall
 Type: Technical
 Condition: Actuator bandwidth is lower than assumed.
@@ -912,15 +920,14 @@ Consequence: The vehicle may fail to maintain commanded attitude during powered 
 Generated display: If actuator bandwidth is lower than assumed, then the vehicle may fail to maintain commanded attitude during powered ascent.
 Subteam owner: Controls
 Individual owner: Controls Lead
-Applicability:
-  Vehicle configuration: TVC-F1
-  Mission phase: Powered ascent
-  Flight attempt: Flight 1
-Initial likelihood: Medium (2)
-Initial severity: High (3)
+Vehicle configuration: TVC-F1
+Mission phase: Powered ascent
+Flight attempt: Flight 1
+Initial likelihood: Medium
+Initial severity: High
 Initial risk level: High
-Current likelihood: Medium (2)
-Current severity: High (3)
+Current likelihood: Medium
+Current severity: High
 Current risk level: High
 Risk response: Mitigate
 Response plan: Complete actuator frequency-response testing and update the control model with measured bandwidth.
