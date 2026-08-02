@@ -19,7 +19,7 @@ This is the working backlog for turning the draft requirements and risk plan int
 
 ## Define authoring and validation guidance
 
-- [x] **Create a concise authoring reference** in `docs/authoring.md`: requirement and risk fields, allowed values, field applicability, ID allocation, relation usage, and one good example of each record type.
+- [x] **Create a concise authoring reference** in `docs/authoring.md`: requirement and risk fields, allowed values, field applicability, UID allocation, relation usage, and one good example of each record type.
 - [x] **Document requirement-writing rules**: use of `shall`, single responsibility, measurable limits, applicable conditions, objective verification, implementation-neutral language, and accepted requirement types.
 - [x] **Document rationale expectations**: source, consequence, basis for quantitative limits or assumptions, and special handling for provisional values.
 - [x] **Document risk-writing rules**: risk types, cause and consequence fields, likelihood/severity scoring, current versus initial risk, response plans, and disposition notes.
@@ -32,7 +32,8 @@ This is the working backlog for turning the draft requirements and risk plan int
 
 ## Define program-repository workflow
 
-- [ ] **Define the recommended repository layout and local commands** in `CONTRIBUTING.md`: where requirements, risks, evidence, configuration records, templates, and generated output belong; how to install pinned tools; and how to validate and preview changes.
+- [x] **Define StrictDoc integration usage** in `docs/strictdoc-integration.md`: shared command name, record tags, conditional fields, relation conventions, risk rendering, risk calculation, and the boundary with shared tooling.
+- [ ] **Define the recommended repository layout and local commands** in `CONTRIBUTING.md`: where records, evidence, configuration records, templates, and generated output belong; how to install pinned tools; and how to run automated checks and preview changes.
 - [ ] **Define the contribution workflow** in `CONTRIBUTING.md`: branch, commit, and pull-request conventions; required reviewers; PR contents; baseline changes; and any expedited path for time-critical corrections.
 - [ ] **Define StrictDoc architecture**: shared grammar fields, relation conventions, generated HTML, verification matrix generation, and CI expectations.
 - [ ] **Decide how project starters are created**: whether this repository should provide a template directory, copied starter files, or a separate starter repository for new rocket programs.
@@ -49,5 +50,7 @@ This is the working backlog for turning the draft requirements and risk plan int
 ## After the core workflow is proven
 
 - [ ] Publish generated StrictDoc HTML for read-only member access; decide separately whether browser editing is worth supporting.
+- [ ] Evaluate editable web authoring for controlled records after the text-based workflow and shared command set are proven.
+- [ ] Evaluate generating `program.sgra` from a canonical schema after the hand-maintained grammar stabilizes.
 - [ ] Confirm that generated verification matrices and traceability views are sufficient; add custom reporting only for a demonstrated review need.
 - [ ] Decide which parts of the proven grammar, CI, templates, and guidance should become reusable starters for future rocket-program repositories.

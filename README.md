@@ -8,7 +8,7 @@ The near-term goal is to turn the draft requirements and risk plan into concise,
 
 - Define the common process for mission definition, requirements development, risk management, verification planning, configuration records, and design reviews.
 - Define the expected repository architecture for program-specific documentation repositories.
-- Define shared metadata, status values, review gates, baseline rules, and validation expectations.
+- Define shared metadata, status values, review gates, baseline rules, and automated-check expectations.
 - Provide templates and examples that project repositories can copy and tailor.
 - Avoid storing project-specific decisions, requirement records, risk records, test evidence, or flight-readiness records here.
 
@@ -19,6 +19,8 @@ The near-term goal is to turn the draft requirements and risk plan into concise,
 - `docs/baselines-and-change-control.md`: defines baseline semantics, review disposition handling, and change-control expectations.
 - `docs/reviews.md`: defines MCR, SRR, PDR, CDR, TRR, FRR, and the expected state after each review.
 - `docs/authoring.md`: defines requirements, risks, rationale, verification, metadata, and validation guidance.
+- `docs/strictdoc-integration.md`: defines how authors use StrictDoc and the shared `syseng` command in program repositories.
+- `docs/automated-record-checks.md`: lists record rules enforced by shared tooling beyond StrictDoc grammar parsing.
 - `docs/writing-style.md`: defines the writing standards for this repository.
 - `templates/`: contains reusable starting points for program artifacts such as concept of operations, interface-control documents, configuration records, reports, checklists, and flight-readiness records.
 
