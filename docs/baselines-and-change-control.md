@@ -81,7 +81,7 @@ Each open item must have a resolution owner.
 
 Each open item must have a resolution plan and due date.
 
-The resolution plan must state what work will close the open item.
+The resolution plan must be populated according to [Authoring](authoring.md#resolution-plans).
 
 Resolving an open item is a change to the controlled record. It must be reviewed and merged through the normal change process.
 

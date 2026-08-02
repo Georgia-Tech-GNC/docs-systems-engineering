@@ -8,7 +8,7 @@ This is the working backlog for turning the draft requirements and risk plan int
 - [x] **Define the controlled artifact vocabulary** in `docs/controlled-artifacts.md`: mission objectives, mission constraints, requirements, concept of operations, interface-control documentation, verification matrix, risk register, configuration records, analysis/test reports, operations checklists, and flight-readiness checklist.
 - [x] **Define baseline semantics** in `docs/baselines-and-change-control.md`: when baselines are created, what an annotated baseline tag contains, why tags are immutable, how post-review dispositions are merged, and how changes between baselines are approved.
 - [x] **Define open-item handling** in `docs/baselines-and-change-control.md`: allowed use of TBD, TBR, and TBS; required resolution owner, plan, and due date; and the rule that review-specific open-item tolerance belongs in `docs/reviews.md`.
-- [ ] **Define applicability conventions** in `docs/authoring.md`: how requirements, risks, evidence, waivers, and configuration records identify the vehicle configuration, mission phase, and flight attempt to which they apply.
+- [x] **Define applicability conventions** in `docs/authoring.md`: how requirements, risks, evidence, waivers, and configuration records identify the vehicle configuration, mission phase, and flight attempt to which they apply.
 
 ## Define the review ladder
 
@@ -19,11 +19,16 @@ This is the working backlog for turning the draft requirements and risk plan int
 
 ## Define authoring and validation guidance
 
-- [ ] **Create a concise authoring reference** in `docs/authoring.md`: requirement and risk fields, allowed values, field applicability, ID allocation, relation usage, and one good example of each record type.
-- [ ] **Document requirement-writing rules**: use of `shall`, single responsibility, measurable limits, applicable conditions, objective verification, implementation-neutral language, and accepted requirement types.
-- [ ] **Document rationale expectations**: source, consequence, basis for quantitative limits or assumptions, and special handling for provisional values.
-- [ ] **Document risk-writing rules**: risk types, cause and consequence fields, likelihood/severity scoring, current versus initial risk, response plans, and disposition notes.
+- [x] **Create a concise authoring reference** in `docs/authoring.md`: requirement and risk fields, allowed values, field applicability, ID allocation, relation usage, and one good example of each record type.
+- [x] **Document requirement-writing rules**: use of `shall`, single responsibility, measurable limits, applicable conditions, objective verification, implementation-neutral language, and accepted requirement types.
+- [x] **Document rationale expectations**: source, consequence, basis for quantitative limits or assumptions, and special handling for provisional values.
+- [x] **Document risk-writing rules**: risk types, cause and consequence fields, likelihood/severity scoring, current versus initial risk, response plans, and disposition notes.
 - [ ] **Specify automated semantic checks**: required fields, UID rules, relation integrity, TBD/TBR/TBS resolution data, risk-level calculations, and warning-only sentence-template checks.
+
+## Refactoring and fix-ups
+
+- [ ] **Convert file-path references across the repository to relative Markdown links**: use readable relative links for cross-document references instead of raw repository paths.
+- [ ] **Standardize project versus program terminology across the repository**: decide which term applies to rocket efforts, repositories, prefixes, teams, and reusable starters, then update wording consistently.
 
 ## Define program-repository workflow
 

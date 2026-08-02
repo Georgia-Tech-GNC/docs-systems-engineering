@@ -22,6 +22,12 @@ A requirement is a controlled statement of what the system or a subsystem must s
 
 It is used to align design work, verification planning, and review decisions.
 
+## Waiver
+
+A waiver is a controlled artifact that approves noncompliance with a requirement for a stated applicability scope.
+
+It is used to record the approved exception without rewriting the requirement.
+
 ## Risk
 
 A risk is a controlled statement of a credible future condition that could harm safety or mission success.
